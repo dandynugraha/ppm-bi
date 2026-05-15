@@ -8,15 +8,25 @@
 <style>
 :root{--bg:#f0f4f3;--card:#fff;--pri:#2a9d8f;--pri-d:#1e7a6e;--pri-l:#e0f5f1;--tx:#1a2e35;--tx2:#5a7a82;--tx3:#8fa8b0;--brd:#d8e8e4;--err:#e74c3c;--err-l:#fdeaea;--warn:#f0a500;--warn-l:#fef5e0;--ok:#27ae60;--ok-l:#e8f8ef;--info:#3498db;--info-l:#eaf4fc;--pur:#7c5cbf;--pur-l:#f0ebfc;--r:16px;--rs:10px;--sh:0 2px 12px rgba(0,0,0,.06)}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
-.pg{display:none;min-height:100vh;padding-bottom:40px}.pg.on{display:block}
-#splash{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1e7a6e,#2a9d8f,#3dbaa0);min-height:100vh;padding-bottom:0}
-#splash .lw{text-align:center;animation:fu .8s ease}
-#splash .lw img{width:110px;height:110px;object-fit:contain;border-radius:22px;background:#fff;padding:14px;animation:fu .6s ease,br 3s ease-in-out 1s infinite}
-#splash .lw h1{color:#fff;font-size:20px;font-weight:800;margin-top:16px;letter-spacing:-.3px}
-#splash .lw p{color:rgba(255,255,255,.6);font-size:12px;margin-top:4px;font-weight:500;letter-spacing:1px;text-transform:uppercase}
+html{height:100%;overflow:hidden}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);height:100vh;overflow:hidden;position:fixed;width:100%;overscroll-behavior:none}
+.pg{display:none;position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;background:var(--bg);z-index:1;-webkit-overflow-scrolling:touch;padding-bottom:40px}.pg.on{display:flex;flex-direction:column}
+#splash{align-items:center;justify-content:center;background:linear-gradient(135deg,#1e7a6e,#2a9d8f,#3dbaa0);padding-bottom:0;overflow:hidden;z-index:10}
+#splash.bye{animation:splashOut .5s ease forwards}
+#splash .lw{text-align:center}
+#splash .lw img{width:100px;height:100px;object-fit:contain;border-radius:22px;background:#fff;padding:14px;animation:logoIn .8s cubic-bezier(.34,1.56,.64,1) forwards,glow 2s ease-in-out .8s infinite}
+#splash .lw h1{color:#fff;font-size:20px;font-weight:800;margin-top:18px;letter-spacing:-.3px;opacity:0;animation:textIn .5s ease .4s forwards}
+#splash .lw p{color:rgba(255,255,255,.5);font-size:10px;margin-top:6px;font-weight:600;letter-spacing:3px;text-transform:uppercase;opacity:0;animation:textIn .5s ease .7s forwards}
+#splash .loader{margin-top:40px;display:flex;gap:6px;align-items:center;justify-content:center}
+#splash .loader .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);animation:dotPulse 1.2s ease-in-out infinite}
+#splash .loader .dot:nth-child(2){animation-delay:.2s}
+#splash .loader .dot:nth-child(3){animation-delay:.4s}
+@keyframes logoIn{from{opacity:0;transform:scale(.5) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.1)}50%{box-shadow:0 0 30px 8px rgba(255,255,255,.15)}}
+@keyframes textIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dotPulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes splashOut{to{opacity:0;transform:scale(1.05)}}
 @keyframes fu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes br{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 @keyframes si{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
 .hd{background:linear-gradient(135deg,#1e7a6e,#2a9d8f);color:#fff;padding:16px 20px 22px;border-radius:0 0 24px 24px;position:relative}
 .hd h2{font-size:18px;font-weight:800;letter-spacing:-.3px}.hd p{font-size:12px;opacity:.65;margin-top:2px;font-weight:500}
@@ -25,9 +35,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .mg{padding:20px 16px;display:grid;gap:12px}
 .mc{background:var(--card);border-radius:var(--r);padding:18px 20px;box-shadow:var(--sh);cursor:pointer;transition:transform .12s;display:flex;align-items:center;gap:16px}
 .mc:active{transform:scale(.97)}
-.mc .ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;font-weight:800}
-.ic-t{background:var(--pri-l);color:var(--pri)}.ic-a{background:var(--warn-l);color:var(--warn)}.ic-c{background:var(--err-l);color:var(--err)}
-.ic-b{background:var(--info-l);color:var(--info)}.ic-p{background:var(--pur-l);color:var(--pur)}.ic-g{background:var(--ok-l);color:var(--ok)}
 .mc h3{font-size:15px;font-weight:700}.mc p{font-size:12px;color:var(--tx2);margin-top:2px}
 .mc .ar{margin-left:auto;color:var(--tx3);font-size:18px}
 .ac{padding:16px}
@@ -77,21 +84,21 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 <body>
 <div class="toast" id="toast"></div>
 
-<div class="pg on" id="splash"><div class="lw"><img src="logo.jpg" alt="Logo PPM"><h1>PPM Baitul 'Ilmaini</h1><p>Sistem Manajemen</p></div></div>
+<div class="pg on" id="splash"><div class="lw"><img src="logo.jpg" alt="Logo PPM"><h1>PPM Baitul 'Ilmaini</h1><p>By System</p></div><div class="loader"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
 
 <div class="pg" id="home">
-<div class="hd"><h2>PPM Baitul 'Ilmaini</h2><p>Sistem Manajemen Asrama</p></div>
+<div class="hd"><h2>PPM Baitul 'Ilmaini</h2><p>By System</p></div>
 <div class="mg">
-<div class="mc" onclick="go('sekben-menu')"><div class="ic ic-p">S</div><div><h3>Sekben</h3><p>Absensi kelas mengaji</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="go('k3lo-menu')"><div class="ic ic-t">K</div><div><h3>K3LO</h3><p>Piket, absen & manajemen</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('sekben-menu')"><div><h3>Sekben</h3><p>Absensi kelas mengaji</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('k3lo-menu')"><div><h3>K3LO</h3><p>Piket, absen & manajemen</p></div><div class="ar">&rsaquo;</div></div>
 </div></div>
 
 <div class="pg" id="sekben-menu">
 <div class="hd hwb"><button class="bb" onclick="go('home')">&lsaquo;</button><h2>Sekben</h2><p>Pilih kelas</p></div>
 <div class="mg">
-<div class="mc" onclick="startSek('hadist')"><div class="ic ic-p">H</div><div><h3>Hadist Besar</h3><p>9 santri</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="startSek('cepatan')"><div class="ic ic-t">C</div><div><h3>Cepatan</h3><p>21 santri</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="startSek('lambatan')"><div class="ic ic-a">L</div><div><h3>Lambatan</h3><p>16 santri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="startSek('hadist')"><div><h3>Hadist Besar</h3><p>9 santri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="startSek('cepatan')"><div><h3>Cepatan</h3><p>21 santri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="startSek('lambatan')"><div><h3>Lambatan</h3><p>16 santri</p></div><div class="ar">&rsaquo;</div></div>
 </div></div>
 
 <div class="pg" id="sekben-degur">
@@ -109,13 +116,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 <div class="pg" id="k3lo-menu">
 <div class="hd hwb"><button class="bb" onclick="go('home')">&lsaquo;</button><h2>K3LO</h2><p>Pilih menu</p></div>
 <div class="mg">
-<div class="mc" onclick="go('astri-menu')"><div class="ic ic-b">Ai</div><div><h3>Astri</h3><p>Piket & absen putri</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="go('astra-menu')"><div class="ic ic-a">Aa</div><div><h3>Astra</h3><p>Piket & absen putra</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="go('duit-menu')"><div class="ic ic-c">D</div><div><h3>Duit</h3><p>Kebersihan & kesehatan</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('astri-menu')"><div><h3>Astri</h3><p>Piket & absen putri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('astra-menu')"><div><h3>Astra</h3><p>Piket & absen putra</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('duit-menu')"><div><h3>Duit</h3><p>Kebersihan & kesehatan</p></div><div class="ar">&rsaquo;</div></div>
 </div></div>
 
 <div class="pg" id="astri-menu">
-<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astri</h2><p>Piket & absen putri</p></div>
+<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astri</h2><p>Piket & absen astri</p></div>
 <div class="sl">Piket &mdash; 1 klik copy</div>
 <div class="po" onclick="showPH('astri')"><div class="dt" style="background:var(--pri)"></div><div><h4>Piket Harian</h4><p>Senin &mdash; Jumat</p></div><div class="av">&rsaquo;</div></div>
 <div class="po" onclick="showPM('astri')"><div class="dt" style="background:var(--warn)"></div><div><h4>Piket Masjid</h4><p>Jumat only</p></div><div class="av">&rsaquo;</div></div>
@@ -127,7 +134,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 </div>
 
 <div class="pg" id="astra-menu">
-<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astra</h2><p>Piket & absen putra</p></div>
+<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astra</h2><p>Piket & absen astra</p></div>
 <div class="sl">Piket &mdash; 1 klik copy</div>
 <div class="po" onclick="showPH('astra')"><div class="dt" style="background:var(--pri)"></div><div><h4>Piket Harian</h4><p>Senin &mdash; Jumat</p></div><div class="av">&rsaquo;</div></div>
 <div class="po" onclick="showPM('astra')"><div class="dt" style="background:var(--warn)"></div><div><h4>Piket Masjid</h4><p>Jumat only</p></div><div class="av">&rsaquo;</div></div>
@@ -142,8 +149,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 <div class="pg" id="duit-menu">
 <div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Duit</h2><p>Kebersihan & Kesehatan</p></div>
 <div class="mg">
-<div class="mc" onclick="toast('Segera hadir')"><div class="ic ic-t">B</div><div><h3>Kebersihan</h3><p>Checklist kebersihan</p></div></div>
-<div class="mc" onclick="toast('Segera hadir')"><div class="ic ic-c">K</div><div><h3>Kesehatan</h3><p>Data kesehatan santri</p></div></div>
+<div class="mc" onclick="toast('Segera hadir')"><div><h3>Kebersihan</h3><p>Checklist kebersihan</p></div></div>
+<div class="mc" onclick="toast('Segera hadir')"><div><h3>Kesehatan</h3><p>Data kesehatan santri</p></div></div>
 </div></div>
 
 <div class="pg" id="copy-page">
@@ -217,11 +224,11 @@ function getRotatedAssignment(names,jobs){
 const URLS={sekben:'YOUR_SEKBEN_SCRIPT_URL',astri:'YOUR_ASTRI_SCRIPT_URL',astra:'YOUR_ASTRA_SCRIPT_URL'};
 let se={k:'',d:'',i:0,r:[]},kl={g:'',t:'',p:'',i:0,r:[],l:[]};
 
-function go(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0)}
+function go(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));var el=document.getElementById(id);el.classList.add('on');el.scrollTop=0}
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 function ftgl(d){return HR[d.getDay()]+', '+d.getDate()+' '+BL[d.getMonth()]+' '+d.getFullYear()}
 function di(){return new Date().getDay()}
-setTimeout(()=>go('home'),2200);
+setTimeout(function(){document.getElementById('splash').classList.add('bye');setTimeout(function(){go('home')},500)},3000);
 
 // ============ SEKBEN ============
 function startSek(k){se.k=k;se.i=0;se.r=[];document.getElementById('skl').textContent='Kelas: '+SK[k].n;
