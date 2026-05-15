@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>PPM Baitul 'Ilmaini</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f4f3;--card:#fff;--pri:#2a9d8f;--pri-d:#1e7a6e;--pri-l:#e0f5f1;--tx:#1a2e35;--tx2:#5a7a82;--tx3:#8fa8b0;--brd:#d8e8e4;--err:#e74c3c;--err-l:#fdeaea;--warn:#f0a500;--warn-l:#fef5e0;--ok:#27ae60;--ok-l:#e8f8ef;--info:#3498db;--info-l:#eaf4fc;--pur:#7c5cbf;--pur-l:#f0ebfc;--r:16px;--rs:10px;--sh:0 2px 12px rgba(0,0,0,.06)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+.pg{display:none;min-height:100vh;padding-bottom:40px}.pg.on{display:block}
+#splash{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1e7a6e,#2a9d8f,#3dbaa0);min-height:100vh;padding-bottom:0}
+#splash .lw{text-align:center;animation:fu .8s ease}
+#splash .lw img{width:110px;height:110px;object-fit:contain;border-radius:22px;background:#fff;padding:14px;animation:fu .6s ease,br 3s ease-in-out 1s infinite}
+#splash .lw h1{color:#fff;font-size:20px;font-weight:800;margin-top:16px;letter-spacing:-.3px}
+#splash .lw p{color:rgba(255,255,255,.6);font-size:12px;margin-top:4px;font-weight:500;letter-spacing:1px;text-transform:uppercase}
+@keyframes fu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes br{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes si{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.hd{background:linear-gradient(135deg,#1e7a6e,#2a9d8f);color:#fff;padding:16px 20px 22px;border-radius:0 0 24px 24px;position:relative}
+.hd h2{font-size:18px;font-weight:800;letter-spacing:-.3px}.hd p{font-size:12px;opacity:.65;margin-top:2px;font-weight:500}
+.bb{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:#fff;width:36px;height:36px;border-radius:12px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.bb:active{background:rgba(255,255,255,.25)}.hwb h2,.hwb p{margin-left:40px}
+.mg{padding:20px 16px;display:grid;gap:12px}
+.mc{background:var(--card);border-radius:var(--r);padding:18px 20px;box-shadow:var(--sh);cursor:pointer;transition:transform .12s;display:flex;align-items:center;gap:16px}
+.mc:active{transform:scale(.97)}
+.mc .ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;font-weight:800}
+.ic-t{background:var(--pri-l);color:var(--pri)}.ic-a{background:var(--warn-l);color:var(--warn)}.ic-c{background:var(--err-l);color:var(--err)}
+.ic-b{background:var(--info-l);color:var(--info)}.ic-p{background:var(--pur-l);color:var(--pur)}.ic-g{background:var(--ok-l);color:var(--ok)}
+.mc h3{font-size:15px;font-weight:700}.mc p{font-size:12px;color:var(--tx2);margin-top:2px}
+.mc .ar{margin-left:auto;color:var(--tx3);font-size:18px}
+.ac{padding:16px}
+.sc{background:var(--card);border-radius:var(--r);padding:24px 20px;box-shadow:var(--sh);text-align:center;animation:si .25s ease}
+.sc .ct{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.sc .pb{height:4px;background:var(--brd);border-radius:2px;margin:0 auto 16px;width:80%;overflow:hidden}
+.sc .pb .fl{height:100%;background:var(--pri);border-radius:2px;transition:width .3s ease}
+.sc .nm{font-size:24px;font-weight:800;margin-bottom:24px;letter-spacing:-.5px}
+.ab{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.ab.c2{grid-template-columns:repeat(2,1fr)}
+.abtn{padding:14px 8px;border-radius:var(--rs);border:2px solid var(--brd);background:var(--card);font-size:13px;font-weight:700;cursor:pointer;transition:all .12s;font-family:inherit}
+.abtn:active{transform:scale(.95)}
+.abtn.hadir{border-color:var(--ok);color:var(--ok);background:var(--ok-l)}
+.abtn.alpa{border-color:var(--err);color:var(--err);background:var(--err-l)}
+.abtn.izin{border-color:var(--warn);color:#b87a00;background:var(--warn-l)}
+.abtn.cuti{border-color:var(--info);color:var(--info);background:var(--info-l)}
+.abtn.pulang{border-color:var(--pur);color:var(--pur);background:var(--pur-l)}
+.abtn.izin-telat{border-color:#e67e22;color:#c66a00;background:#fef0e0}
+.abtn.sudone{border-color:var(--ok);color:var(--ok);background:var(--ok-l)}
+.nr{display:flex;gap:10px;margin-top:20px}
+.nb{flex:1;padding:14px;border-radius:var(--rs);border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .12s}
+.nb:active{transform:scale(.97)}.nb.s{background:var(--brd);color:var(--tx2)}.nb.p{background:var(--pri);color:#fff}
+.cs{padding:16px}.cc{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:var(--sh)}
+.cp{background:var(--bg);border-radius:var(--rs);padding:14px;font-size:12px;color:var(--tx2);line-height:1.7;max-height:320px;overflow-y:auto;margin-bottom:16px;white-space:pre-wrap;word-break:break-word;border:1px solid var(--brd)}
+.cbtn{width:100%;padding:16px;border-radius:var(--rs);border:none;background:var(--pri);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s}
+.cbtn:active{transform:scale(.97);background:var(--pri-d)}.cbtn.ok{background:var(--ok)}
+.rs{padding:16px}.rc{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:var(--sh);margin-bottom:12px}
+.ri{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--brd)}.ri:last-child{border-bottom:none}
+.ri .nm{font-size:14px;font-weight:600}.ri .st{font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px}
+.st-h,.st-su{background:var(--ok-l);color:var(--ok)}.st-a{background:var(--err-l);color:var(--err)}
+.st-i{background:var(--warn-l);color:#b87a00}.st-c{background:var(--info-l);color:var(--info)}
+.st-p{background:var(--pur-l);color:var(--pur)}.st-it{background:#fef0e0;color:#c66a00}
+.sr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.sb{background:var(--card);border-radius:var(--rs);padding:14px;text-align:center;box-shadow:var(--sh)}
+.sb .n{font-size:26px;font-weight:800;letter-spacing:-1px}.sb .l{font-size:11px;color:var(--tx3);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.po{background:var(--card);border-radius:var(--r);padding:16px 20px;box-shadow:var(--sh);cursor:pointer;margin:0 16px 10px;display:flex;align-items:center;gap:14px;transition:transform .12s;animation:si .25s ease backwards}
+.po:nth-child(1){animation-delay:0s}.po:nth-child(2){animation-delay:.05s}.po:nth-child(3){animation-delay:.1s}.po:nth-child(4){animation-delay:.15s}
+.po:active{transform:scale(.97)}.po .dt{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.po h4{font-size:14px;font-weight:700}.po p{font-size:12px;color:var(--tx3)}.po .av{margin-left:auto;color:var(--tx3);font-size:16px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--tx);color:#fff;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:600;z-index:999;transition:transform .3s ease;pointer-events:none;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.dg{display:grid;gap:10px;padding:16px}
+.dc{background:var(--card);border-radius:var(--r);padding:18px 20px;box-shadow:var(--sh);cursor:pointer;font-size:15px;font-weight:700;transition:transform .12s;text-align:center}
+.dc:active{transform:scale(.97)}
+.sl{padding:20px 16px 8px;font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+
+<div class="pg on" id="splash"><div class="lw"><img src="logo.jpg" alt="Logo PPM"><h1>PPM Baitul 'Ilmaini</h1><p>Sistem Manajemen</p></div></div>
+
+<div class="pg" id="home">
+<div class="hd"><h2>PPM Baitul 'Ilmaini</h2><p>Sistem Manajemen Asrama</p></div>
+<div class="mg">
+<div class="mc" onclick="go('sekben-menu')"><div class="ic ic-p">S</div><div><h3>Sekben</h3><p>Absensi kelas mengaji</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('k3lo-menu')"><div class="ic ic-t">K</div><div><h3>K3LO</h3><p>Piket, absen & manajemen</p></div><div class="ar">&rsaquo;</div></div>
+</div></div>
+
+<div class="pg" id="sekben-menu">
+<div class="hd hwb"><button class="bb" onclick="go('home')">&lsaquo;</button><h2>Sekben</h2><p>Pilih kelas</p></div>
+<div class="mg">
+<div class="mc" onclick="startSek('hadist')"><div class="ic ic-p">H</div><div><h3>Hadist Besar</h3><p>9 santri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="startSek('cepatan')"><div class="ic ic-t">C</div><div><h3>Cepatan</h3><p>21 santri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="startSek('lambatan')"><div class="ic ic-a">L</div><div><h3>Lambatan</h3><p>16 santri</p></div><div class="ar">&rsaquo;</div></div>
+</div></div>
+
+<div class="pg" id="sekben-degur">
+<div class="hd hwb"><button class="bb" onclick="go('sekben-menu')">&lsaquo;</button><h2>Pilih Pengajar</h2><p id="skl"></p></div>
+<div class="dg" id="dl"></div></div>
+
+<div class="pg" id="sekben-absen">
+<div class="hd hwb"><button class="bb" onclick="cfmBack('sekben-degur')">&lsaquo;</button><h2 id="aht">Absen</h2><p id="ahs"></p></div>
+<div class="ac" id="aa"></div></div>
+
+<div class="pg" id="sekben-result">
+<div class="hd hwb"><button class="bb" onclick="go('sekben-menu')">&lsaquo;</button><h2>Hasil Absen</h2><p id="rsu"></p></div>
+<div class="rs" id="ra"></div></div>
+
+<div class="pg" id="k3lo-menu">
+<div class="hd hwb"><button class="bb" onclick="go('home')">&lsaquo;</button><h2>K3LO</h2><p>Pilih menu</p></div>
+<div class="mg">
+<div class="mc" onclick="go('astri-menu')"><div class="ic ic-b">Ai</div><div><h3>Astri</h3><p>Piket & absen putri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('astra-menu')"><div class="ic ic-a">Aa</div><div><h3>Astra</h3><p>Piket & absen putra</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('duit-menu')"><div class="ic ic-c">D</div><div><h3>Duit</h3><p>Kebersihan & kesehatan</p></div><div class="ar">&rsaquo;</div></div>
+</div></div>
+
+<div class="pg" id="astri-menu">
+<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astri</h2><p>Piket & absen putri</p></div>
+<div class="sl">Piket &mdash; 1 klik copy</div>
+<div class="po" onclick="showPH('astri')"><div class="dt" style="background:var(--pri)"></div><div><h4>Piket Harian</h4><p>Senin &mdash; Jumat</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="showPM('astri')"><div class="dt" style="background:var(--warn)"></div><div><h4>Piket Masjid</h4><p>Jumat only</p></div><div class="av">&rsaquo;</div></div>
+<div class="sl">Absen Piket</div>
+<div class="po" onclick="startAP('astri','harian')"><div class="dt" style="background:var(--ok)"></div><div><h4>Absen Piket Harian</h4><p>Yang piket hari ini</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astri','jaga-malam')"><div class="dt" style="background:var(--pur)"></div><div><h4>Absen Jaga Malam</h4><p>Yang jaga malam ini</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astri','mingguan')"><div class="dt" style="background:var(--info)"></div><div><h4>Absen Piket Mingguan</h4><p>Semua anggota</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astri','masjid')"><div class="dt" style="background:var(--warn)"></div><div><h4>Absen Piket Masjid</h4><p>Semua anggota</p></div><div class="av">&rsaquo;</div></div>
+</div>
+
+<div class="pg" id="astra-menu">
+<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Astra</h2><p>Piket & absen putra</p></div>
+<div class="sl">Piket &mdash; 1 klik copy</div>
+<div class="po" onclick="showPH('astra')"><div class="dt" style="background:var(--pri)"></div><div><h4>Piket Harian</h4><p>Senin &mdash; Jumat</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="showPM('astra')"><div class="dt" style="background:var(--warn)"></div><div><h4>Piket Masjid</h4><p>Jumat only</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="showJM()"><div class="dt" style="background:var(--pur)"></div><div><h4>Piket Jaga Malam</h4><p>Setiap hari</p></div><div class="av">&rsaquo;</div></div>
+<div class="sl">Absen Piket</div>
+<div class="po" onclick="startAP('astra','harian')"><div class="dt" style="background:var(--ok)"></div><div><h4>Absen Piket Harian</h4><p>Yang piket hari ini</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astra','jaga-malam')"><div class="dt" style="background:var(--pur)"></div><div><h4>Absen Jaga Malam</h4><p>Yang jaga malam ini</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astra','mingguan')"><div class="dt" style="background:var(--info)"></div><div><h4>Absen Piket Mingguan</h4><p>Semua anggota</p></div><div class="av">&rsaquo;</div></div>
+<div class="po" onclick="startAP('astra','masjid')"><div class="dt" style="background:var(--warn)"></div><div><h4>Absen Piket Masjid</h4><p>Semua anggota</p></div><div class="av">&rsaquo;</div></div>
+</div>
+
+<div class="pg" id="duit-menu">
+<div class="hd hwb"><button class="bb" onclick="go('k3lo-menu')">&lsaquo;</button><h2>Duit</h2><p>Kebersihan & Kesehatan</p></div>
+<div class="mg">
+<div class="mc" onclick="toast('Segera hadir')"><div class="ic ic-t">B</div><div><h3>Kebersihan</h3><p>Checklist kebersihan</p></div></div>
+<div class="mc" onclick="toast('Segera hadir')"><div class="ic ic-c">K</div><div><h3>Kesehatan</h3><p>Data kesehatan santri</p></div></div>
+</div></div>
+
+<div class="pg" id="copy-page">
+<div class="hd hwb"><button class="bb" id="cpb">&lsaquo;</button><h2 id="cpt">Piket</h2><p id="cps"></p></div>
+<div class="cs"><div class="cc"><div class="cp" id="cpv"></div>
+<button class="cbtn" id="cbn" onclick="doCopy()">Copy ke Clipboard</button>
+</div></div></div>
+
+<div class="pg" id="k3lo-degur">
+<div class="hd hwb"><button class="bb" id="kdb">&lsaquo;</button><h2>Pilih Pengabsen</h2><p id="kds"></p></div>
+<div class="dg" id="kdl"></div></div>
+
+<div class="pg" id="k3lo-absen">
+<div class="hd hwb"><button class="bb" onclick="cfmBackK()">&lsaquo;</button><h2 id="kat">Absen Piket</h2><p id="kas"></p></div>
+<div class="ac" id="kaa"></div></div>
+
+<div class="pg" id="k3lo-result">
+<div class="hd hwb"><button class="bb" id="krb">&lsaquo;</button><h2>Hasil Absen Piket</h2><p id="krs"></p></div>
+<div class="rs" id="kra"></div></div>
+
+<script>
+const HR=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],BL=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const SD=['Pak Adil','Pak Irfan','Pak Hanif','Mba Bilqis'],SS=['Hadir','Alpa','Izin','Cuti','Pulang','Izin Telat'],KS=['Sudone','Alpa','Izin','Cuti'];
+const PA_I=['Mba Jeni','Mba Aisyah','Mba Bilqis'],PA_A=['Aldaka','Athar','Dandy','Mas Royhan'];
+const SK={hadist:{n:'Hadist Besar',s:['Almanshurin R. W.','Maylando Miftahul A.','M. Dandy Nugraha','Salman Firdaus','Aghnia Fahmaneta','Aisyah Widyawati','Jeni Mauritama','Shabrina Afroo','Zaskia Anjani Putri']},cepatan:{n:'Cepatan',s:['Alkaysi Ihsana','Hadiyanto','Oktavian Fauzi','Yudha Wisnu','Yudistira D.','Adi Syahputra','Firdaus R. D.','Hamdani Ibrahim','Kayis Ardian','M. Ihsan','Restu Fajar','Zulfan Ahmad','Aprilistya Nur','Dewina Alfina','Furusyin C.','Nanda Ridauli','Nirmala Cindy','Ria Fitriani','Risha Shabisma','Fanisa Maulinda','Aulia Mutiara']},lambatan:{n:'Lambatan',s:['Abian Jakeiva','Aldaka Galvin','Danin Nuzan','Faaza Abdullah','M. Athar Rafid','M. Fahrurrozie','M. Vahri R.','Nizar Zedda','Devian P. P. H.','Arieny Putri N.','Ardiansyah F','Everyl Dina','Lady Kaisyu','Oktavia Dhiya','Queena Daniza','Shabrina Fayza']}};
+const PHI={1:['Amy','Oca','Fanes'],2:['Anjani','Iif','Nana','Ria'],3:['Arin','Nirmala','Arsy','Halin'],4:['Nanet','Lady','Queen'],5:['Aisyah','Jeni','Dewina','Nanda','Iin']};
+const PHA={1:['Dandy','Bibin','Danin','Alung','Vian'],2:['Hadi','Vahri','Tahul','Firdaus'],3:['Zulfan','Athar','Dani','Yudis','Kaysi'],4:['Faaza','Salman','Alman','Aldaka','Fajar'],5:['Ihsan','Kayis','Yudha','Devian','Nizar']};
+const JMA={0:['Danin','Hadi','Vahri','Alman'],1:['Dandy','Alung','Yudis','Adi'],2:['Dani','Kaysi','Athar','Ihsan'],3:['Devian','Daus','Vian','Bibin'],4:['Yudha','Nizar','Zulfan'],5:['Tahul','Salman','Kayis'],6:['Aldaka','Faaza','Fajar']};
+const JMI={1:['Amy','Nanda','Nirmala'],2:['Eve','Nana','Anjani'],3:['Shelvy','Arin','Halin'],4:['Arcy','Via','Aisyah'],5:['Oca','Fanes','Nanet'],6:['Lady','Queena','Ria'],0:['Iin','Dewina','Shabrina','Jenni']};
+const AI=['Amy','Oca','Fanes','Anjani','Iif','Nana','Ria','Arin','Nirmala','Arsy','Halin','Nanet','Lady','Queen','Aisyah','Jeni','Dewina','Nanda','Iin'];
+const AA=['Dandy','Bibin','Danin','Alung','Vian','Hadi','Vahri','Tahul','Firdaus','Zulfan','Athar','Dani','Yudis','Kaysi','Faaza','Salman','Alman','Aldaka','Fajar','Ihsan','Kayis','Yudha','Devian','Nizar'];
+
+// Job descriptions for piket harian
+const JI=['Dapur','Nyapu lorong bawah (r.tamu-kamar 6)','Ngepel lorong bawah','Nyapu lorong atas (blkg tabir-km 6)','Ngepel lorong atas'];
+const JA=['Menyapu/Mengepel Lantai 1','Menyapu/Mengepel lantai 2','Menyapu Dan Mengepel Dapur','Membersihkan meja makan dan meja kompor'];
+
+// ============ AUTO ROLLING LOGIC ============
+// Menghitung minggu ke-berapa sejak epoch date (awal tahun ajaran)
+// Setiap minggu, assignment job <-> orang digeser/dirotasi
+function getWeekNum(){
+  const epoch=new Date(2026,0,5); // 5 Jan 2026 sebagai start
+  const now=new Date();
+  const diff=Math.floor((now-epoch)/(7*24*60*60*1000));
+  return Math.max(0,diff);
+}
+
+function rotateArray(arr,shift){
+  if(!arr.length)return arr;
+  const s=shift%arr.length;
+  return [...arr.slice(s),...arr.slice(0,s)];
+}
+
+// Rotate jobs assignment: setiap minggu, orang digeser ke job berikutnya
+function getRotatedAssignment(names,jobs){
+  const w=getWeekNum();
+  const rotated=rotateArray(names,w);
+  const pairs=[];
+  for(let i=0;i<jobs.length;i++){
+    // Kalau orang lebih banyak dari job, beberapa job dikerjakan 2 orang
+    const assignees=[];
+    // Distribute names across jobs
+    for(let n=0;n<rotated.length;n++){
+      if(n%jobs.length===i) assignees.push(rotated[n]);
+    }
+    pairs.push({job:jobs[i],names:assignees});
+  }
+  return pairs;
+}
+
+// Google Apps Script URLs - GANTI DENGAN URL DEPLOYMENT KAMU
+const URLS={sekben:'YOUR_SEKBEN_SCRIPT_URL',astri:'YOUR_ASTRI_SCRIPT_URL',astra:'YOUR_ASTRA_SCRIPT_URL'};
+let se={k:'',d:'',i:0,r:[]},kl={g:'',t:'',p:'',i:0,r:[],l:[]};
+
+function go(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0)}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
+function ftgl(d){return HR[d.getDay()]+', '+d.getDate()+' '+BL[d.getMonth()]+' '+d.getFullYear()}
+function di(){return new Date().getDay()}
+setTimeout(()=>go('home'),2200);
+
+// ============ SEKBEN ============
+function startSek(k){se.k=k;se.i=0;se.r=[];document.getElementById('skl').textContent='Kelas: '+SK[k].n;
+const g=document.getElementById('dl');g.innerHTML='';SD.forEach(d=>{g.innerHTML+=`<div class="dc" onclick="selD('${d}')">${d}</div>`});go('sekben-degur')}
+function selD(d){se.d=d;se.r=SK[se.k].s.map(s=>({nama:s,status:''}));document.getElementById('aht').textContent=SK[se.k].n;document.getElementById('ahs').textContent='Pengajar: '+d;rSA();go('sekben-absen')}
+function rSA(){const a=document.getElementById('aa'),r=se.r,i=se.i;if(i>=r.length){showSR();return}
+const p=Math.round(i/r.length*100);
+a.innerHTML=`<div class="sc"><div class="ct">${i+1} dari ${r.length}</div><div class="pb"><div class="fl" style="width:${p}%"></div></div><div class="nm">${r[i].nama}</div><div class="ab">${SS.map(s=>`<button class="abtn ${s.toLowerCase().replace(' ','-')}" onclick="sV('${s}')">${s}</button>`).join('')}</div><div class="nr"><button class="nb s" onclick="sB()" ${i===0?'disabled':''}>Kembali</button></div></div>`}
+function sV(s){se.r[se.i].status=s;se.i++;rSA()}
+function sB(){if(se.i>0){se.i--;rSA()}}
+function cfmBack(t){if(se.i>0){if(confirm('Data belum dikirim. Yakin kembali?'))go(t)}else go(t)}
+function showSR(){const r=se.r,c=SK[se.k];document.getElementById('rsu').textContent=c.n+' \u2014 '+se.d;
+const h=r.filter(x=>x.status==='Hadir').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-h-al;
+let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${h}</div><div class="l">Hadir</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
+r.forEach(s=>{const cl=s.status==='Hadir'?'st-h':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':s.status==='Cuti'?'st-c':s.status==='Pulang'?'st-p':'st-it';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="se.i=se.r.length-1;rSA();go('sekben-absen')">Edit</button><button class="nb p" onclick="sendSek()">Kirim ke Sheets</button></div>`;
+document.getElementById('ra').innerHTML=htm;go('sekben-result')}
+function sendSek(){
+  const payload={action:'absen-sekben',kelas:SK[se.k].n,degur:se.d,tanggal:ftgl(new Date()),results:se.r};
+  if(!URLS.sekben.startsWith('YOUR_')){fetch(URLS.sekben,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}).then(()=>toast('Data terkirim')).catch(()=>toast('Gagal kirim'))}
+  else{toast('Data tercatat (offline)')}
+  setTimeout(()=>go('sekben-menu'),1500)}
+
+// ============ PIKET HARIAN with AUTO ROLLING ============
+function showPH(g){const d=di();if(d===0||d===6){toast('Tidak ada piket harian hari ini');return}
+const jadwal=g==='astri'?PHI:PHA,names=jadwal[d]||[],jobs=g==='astri'?JI:JA,tgl=ftgl(new Date());
+// Auto rolling: rotate job assignment
+const assignment=getRotatedAssignment(names,jobs);
+let tx='';
+if(g==='astri'){
+  tx=`REMINDER\n${tgl}\nAdapun pembagian jobnya :\n`;
+  assignment.forEach((a,i)=>{tx+=`${i+1}. ${a.job}: ${a.names.join(', ')}\n`});
+  tx+=`\nNOTE\n- Bagi yang berhalangan beri alasan yang jelas\n- Setelah melaksanakan piket, harap menceklis namanya\n- Jika ada kendala dalam jobdesknya supaya PC tim k3lo\nKerjakan karna Alloh, Alhamdulillahijazakumullohukhoiro\nCmangatt cmingitt cmungutt`}
+else{
+  tx=`[PIKET HARIAN - ${tgl}]\n\n`;
+  assignment.forEach((a,i)=>{tx+=`${i+1}. ${a.job}\n   - ${a.names.join(', ')}\n\n`});
+  tx+=`NB:\n- Setelah piket amshol, wajib checklist\n- Deadline pengerjaan: 23.59 hari piket\n- Yang tidak menyelesaikan tugas, akan didobel minggu berikutnya\nJangan lupa niatkan karena Allah\n"Bersihkan hatimu, bersihkan lingkunganmu"\nKerjakan karena Allah, mugo-mugo Allah paringi manfaat, kelancaran, & keberkahan\n\u0627\u0644\u062d\u0645\u062f \u0644\u0644\u0647 \u062c\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627\n\u0648\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647`}
+showCP(g==='astri'?'Piket Harian Astri':'Piket Harian Astra',tgl,tx,g+'-menu')}
+
+// ============ PIKET MASJID with AUTO ROLLING ============
+function showPM(g){const tgl=ftgl(new Date()),jadwal=g==='astri'?PHI:PHA;
+// Collect all names
+const aN=[];Object.values(jadwal).forEach(a=>a.forEach(n=>{if(!aN.includes(n))aN.push(n)}));
+// Rotate all names for masjid assignment
+const w=getWeekNum();const rotN=rotateArray(aN,w);
+let tx='';
+if(g==='astri'){
+  const mj=['Nyapu masjid lt.2','Ngepel masjid 2','Nyapu tangga perempuan','Ngepel tangga perempuan','Nyapu tangga laki-laki','Ngepel tangga laki-laki','Menyapu/menyebret PPG','Km bawah (disikat, dibersihkan kloset, dan sawangnya','Km atas (disikat, dibersihkan kloset dan sawangnya','Membersihkan wudhu lantai 2','Membersihkan tempat wudhu lantai 1','Merapihkan rak mukena dan Alquran','Jendela lantai 2','Menyapu teras depan kamar tamu','Mengepel teras depan kamar tamu desa'];
+  tx=`Piket Masjid Jum'at\n${tgl}\n\n`;mj.forEach((j,i)=>{tx+=`${i+1}. ${j}: ${rotN[i%rotN.length]}\n`});
+  tx+=`\nNB: untuk yang kuliah pagi\n1. Tetap harus mengerjakan piket.\n2. Jika tidak bisa piket pagi maka mengganti di waktu lain. Terakhir pengerjaan 22.00 WIB.\nKerjakan karena Allah semoga Allah paring manfaat lancar dan barokah, Alhamdulillahi jaza kumullahu khoiro`}
+else{
+  const mj=['Membersihkan tempat wudhu (+ selasar depan KM)','Membersihkan kaca jendela sisi belakang','Membersihkan kaca jendela sisi depan','Menyapu halaman parkiran samping PPM','Membersihkan ruang muadzin dan rak','Membersihkan halaman samping masjid','Membersihkan halaman depan masjid','Membersihkan teras masjid (sisi belakang)','Membersihkan teras masjid (sisi depan)','Membersihkan KM 1','Membersihkan KM 2','Membersihkan KM 3','Membersihkan Kantor LDII'];
+  tx=`[ PIKET MASJID ]\n\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\n\nHallo Astra Squad, Berikut pembagian tugas piket masjid (${tgl}):\n\n`;mj.forEach((j,i)=>{tx+=`${i+1}. ${j}\n   - ${rotN[i%rotN.length]}\n\n`});
+  tx+=`Semoga Allah senantiasa memberi keberkahan atas setiap amal kalian\nNB: Jangan lupa checklist setelah menyelesaikan tugas ya!\n\u062c\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627\n\u0648\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\n\u2014 Tim K3LO PPM Baitul 'Ilmaini`}
+showCP(g==='astri'?'Piket Masjid Astri':'Piket Masjid Astra',tgl,tx,g+'-menu')}
+
+// ============ PIKET JAGA MALAM ============
+function showJM(){const d=di(),tgl=ftgl(new Date()),aP=JMA[d]||[],iP=JMI[d]||[];
+let tx=`PREPARE\nAssalamualaikum. Mengingatkan, untuk malam ini...\n${tgl} ( 22.30 - Shubuh )\n\nPetugas Piket Malam ASTRA\n`;
+aP.forEach(n=>tx+=`- ${n}\n`);tx+=`\nPetugas Piket Malam ASTRI\n`;iP.forEach(n=>tx+=`- ${n}\n`);
+tx+=`\nPEPERIZINAN JAMAL, ISI BUKU JAMAL DI YANG PIKET JAGA MALAM\n\nJob desc:\n1. Membuang Sampah Astra & Astri\n2. Mengamankan sekeliling PPM\n3. Membangunkan sholat malam komplek dan PPM\n4. Menutup palang depan komplek\n5. Menjemput santri yang pulang lewat jam malam\n6. Merapikan parkiran\n7. Membangunkan subuh\n\nNB:\n- Amal sholeh membawa jaket dan sarung/selimut untuk diri sendiri...\nKEEP LILLAH semoga allah paring aman selamat lancar dan ganti yg barokah\n\u0627\u0644\u062d\u0645\u062f \u0644\u0644\u0647 \u062c\u0632\u0627 \u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627`;
+showCP('Piket Jaga Malam',tgl,tx,'astra-menu')}
+
+// ============ COPY PAGE ============
+function showCP(t,s,tx,bk){document.getElementById('cpt').textContent=t;document.getElementById('cps').textContent=s;document.getElementById('cpv').textContent=tx;
+const b=document.getElementById('cbn');b.className='cbtn';b.textContent='Copy ke Clipboard';document.getElementById('cpb').onclick=()=>go(bk);go('copy-page')}
+function doCopy(){const tx=document.getElementById('cpv').textContent;navigator.clipboard.writeText(tx).then(()=>{
+const b=document.getElementById('cbn');b.className='cbtn ok';b.textContent='Tersalin!';toast('Berhasil dicopy');
+setTimeout(()=>{b.className='cbtn';b.textContent='Copy ke Clipboard'},3000)}).catch(()=>{
+const ta=document.createElement('textarea');ta.value=tx;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Berhasil dicopy')})}
+
+// ============ ABSEN PIKET K3LO ============
+function startAP(g,t){kl.g=g;kl.t=t;let ls;const d=di();
+if(t==='harian'){const jd=g==='astri'?PHI:PHA;ls=jd[d]||[];if(!ls.length){toast('Tidak ada piket harian hari ini');return}}
+else if(t==='jaga-malam'){const jd=g==='astri'?JMI:JMA;ls=jd[d]||[];if(!ls.length){toast('Tidak ada jaga malam hari ini');return}}
+else{ls=g==='astri'?[...AI]:[...AA]}
+kl.l=ls;
+const tl={harian:'Piket Harian','jaga-malam':'Jaga Malam',mingguan:'Piket Mingguan',masjid:'Piket Masjid'},gl=g==='astri'?'Astri':'Astra';
+document.getElementById('kds').textContent=`${tl[t]} ${gl} \u2014 ${ls.length} orang`;
+const gr=document.getElementById('kdl');gr.innerHTML='';
+(g==='astri'?PA_I:PA_A).forEach(d=>{gr.innerHTML+=`<div class="dc" onclick="selKD('${d}')">${d}</div>`});
+document.getElementById('kdb').onclick=()=>go(g+'-menu');go('k3lo-degur')}
+
+function selKD(p){kl.p=p;kl.i=0;kl.r=kl.l.map(s=>({nama:s,status:''}));
+const tl={harian:'Piket Harian','jaga-malam':'Jaga Malam',mingguan:'Piket Mingguan',masjid:'Piket Masjid'},gl=kl.g==='astri'?'Astri':'Astra';
+document.getElementById('kat').textContent='Absen '+tl[kl.t];document.getElementById('kas').textContent=gl+' \u2014 '+p;rKA();go('k3lo-absen')}
+
+function rKA(){const a=document.getElementById('kaa'),r=kl.r,i=kl.i;if(i>=r.length){showKR();return}
+const p=Math.round(i/r.length*100);
+a.innerHTML=`<div class="sc"><div class="ct">${i+1} dari ${r.length}</div><div class="pb"><div class="fl" style="width:${p}%"></div></div><div class="nm">${r[i].nama}</div><div class="ab c2">${KS.map(s=>`<button class="abtn ${s.toLowerCase()}" onclick="kV('${s}')">${s}</button>`).join('')}</div><div class="nr"><button class="nb s" onclick="kB()" ${i===0?'disabled':''}>Kembali</button></div></div>`}
+function kV(s){kl.r[kl.i].status=s;kl.i++;rKA()}
+function kB(){if(kl.i>0){kl.i--;rKA()}}
+function cfmBackK(){if(kl.i>0){if(confirm('Data belum dikirim. Yakin kembali?'))go(kl.g+'-menu')}else go(kl.g+'-menu')}
+
+function showKR(){const r=kl.r,tl={harian:'Piket Harian','jaga-malam':'Jaga Malam',mingguan:'Piket Mingguan',masjid:'Piket Masjid'},gl=kl.g==='astri'?'Astri':'Astra';
+document.getElementById('krs').textContent=`${tl[kl.t]} ${gl} \u2014 ${kl.p}`;
+const sd=r.filter(x=>x.status==='Sudone').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-sd-al;
+let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${sd}</div><div class="l">Sudone</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
+r.forEach(s=>{const cl=s.status==='Sudone'?'st-su':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':'st-c';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="kl.i=kl.r.length-1;rKA();go('k3lo-absen')">Edit</button><button class="nb p" onclick="sendK()">Kirim ke Sheets</button></div>`;
+document.getElementById('kra').innerHTML=htm;document.getElementById('krb').onclick=()=>go(kl.g+'-menu');go('k3lo-result')}
+
+function sendK(){
+  const tl={harian:'Piket Harian','jaga-malam':'Jaga Malam',mingguan:'Piket Mingguan',masjid:'Piket Masjid'};
+  const payload={action:'absen-k3lo',group:kl.g,type:kl.t,typeLabel:tl[kl.t],pengabsen:kl.p,tanggal:ftgl(new Date()),results:kl.r};
+  const url=kl.g==='astri'?URLS.astri:URLS.astra;
+  if(url&&!url.startsWith('YOUR_')){fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}).then(()=>toast('Data terkirim')).catch(()=>toast('Gagal kirim'))}
+  else{toast('Data tercatat (offline)')}
+  setTimeout(()=>go(kl.g+'-menu'),1500)}
+</script>
+</body>
+</html>
