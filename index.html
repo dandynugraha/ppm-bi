@@ -244,7 +244,7 @@ function showSR(){const r=se.r,c=SK[se.k];document.getElementById('rsu').textCon
 const h=r.filter(x=>x.status==='Hadir').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-h-al;
 let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${h}</div><div class="l">Hadir</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
 r.forEach(s=>{const cl=s.status==='Hadir'?'st-h':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':s.status==='Cuti'?'st-c':s.status==='Pulang'?'st-p':'st-it';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
-htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="se.i=se.r.length-1;rSA();go('sekben-absen')">Edit</button><button class="nb p" onclick="sendSek()">Kirim ke Sheets</button></div>`;
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="se.i=se.r.length-1;rSA();go('sekben-absen')">Edit</button><button class="nb p" onclick="sendSek()">Kirim</button></div>`;
 document.getElementById('ra').innerHTML=htm;go('sekben-result')}
 function sendSek(){
   const payload={action:'absen-sekben',kelas:SK[se.k].n,degur:se.d,tanggal:ftgl(new Date()),results:se.r};
@@ -328,7 +328,7 @@ document.getElementById('krs').textContent=`${tl[kl.t]} ${gl} \u2014 ${kl.p}`;
 const sd=r.filter(x=>x.status==='Sudone').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-sd-al;
 let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${sd}</div><div class="l">Sudone</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
 r.forEach(s=>{const cl=s.status==='Sudone'?'st-su':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':'st-c';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
-htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="kl.i=kl.r.length-1;rKA();go('k3lo-absen')">Edit</button><button class="nb p" onclick="sendK()">Kirim ke Sheets</button></div>`;
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="kl.i=kl.r.length-1;rKA();go('k3lo-absen')">Edit</button><button class="nb p" onclick="sendK()">Kirim</button></div>`;
 document.getElementById('kra').innerHTML=htm;document.getElementById('krb').onclick=()=>go(kl.g+'-menu');go('k3lo-result')}
 
 function sendK(){
