@@ -221,7 +221,7 @@ function getRotatedAssignment(names,jobs){
 }
 
 // Google Apps Script URLs - GANTI DENGAN URL DEPLOYMENT KAMU
-const URLS={sekben:'https://script.google.com/macros/s/AKfycbxYFAHYk_dZWyPYi218friQ2Yfh57OeGdaSMGgMH1oS64YywEwKWugSMyE_dk3sGpw/exec',astri:'https://script.google.com/macros/s/AKfycbw89k1EmAR4U314uAdovRCV4s1LWJtT6hlwuA33km4HJjmg0eoXAhh6A1I8mlR15m8/exec',astra:'https://script.google.com/macros/s/AKfycbx2tKEDBDuWBsmGNGm34ZFrab0JyxhrblExei33Trs9eoQ1Iz9vpFs-WzaCa-uNbg9Q/exec'};
+const URLS={sekben:'https://script.google.com/macros/s/AKfycbzmg36NCnWc_LSNW2ggbDoFzI3QoMo-6LK3eJX-9NvAqdsoZES3wHkIgLoHjjM3UwA/exec',astri:'https://script.google.com/macros/s/AKfycbywZpm9WDhhiZYJ-OGvhXGbNxuHpP85q85yi4i-IMax7FV2rDrrxwL6xj24rdC2ZXc/exec',astra:'https://script.google.com/macros/s/AKfycbyLY_pFLlqa17X-A2a7ySeHDX2fDbC52Rlf69bz1rTuiRMtvYIwzvHUZxdKalA-bYg-/exec'};
 let se={k:'',d:'',i:0,r:[]},kl={g:'',t:'',p:'',i:0,r:[],l:[]};
 
 function go(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));var el=document.getElementById(id);el.classList.add('on');el.scrollTop=0}
@@ -287,9 +287,11 @@ showCP(g==='astri'?'Piket Masjid Astri':'Piket Masjid Astra',tgl,tx,g+'-menu')}
 
 // ============ PIKET JAGA MALAM ============
 function showJM(){const d=di(),tgl=ftgl(new Date()),aP=JMA[d]||[],iP=JMI[d]||[];
-let tx=`PREPARE\nAssalamualaikum. Mengingatkan, untuk malam ini...\n${tgl} ( 22.30 - Shubuh )\n\nPetugas Piket Malam ASTRA\n`;
-aP.forEach(n=>tx+=`- ${n}\n`);tx+=`\nPetugas Piket Malam ASTRI\n`;iP.forEach(n=>tx+=`- ${n}\n`);
-tx+=`\nPEPERIZINAN JAMAL, ISI BUKU JAMAL DI YANG PIKET JAGA MALAM\n\nJob desc:\n1. Membuang Sampah Astra & Astri\n2. Mengamankan sekeliling PPM\n3. Membangunkan sholat malam komplek dan PPM\n4. Menutup palang depan komplek\n5. Menjemput santri yang pulang lewat jam malam\n6. Merapikan parkiran\n7. Membangunkan subuh\n\nNB:\n- Amal sholeh membawa jaket dan sarung/selimut untuk diri sendiri...\nKEEP LILLAH semoga allah paring aman selamat lancar dan ganti yg barokah\n\u0627\u0644\u062d\u0645\u062f \u0644\u0644\u0647 \u062c\u0632\u0627 \u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627`;
+let tx=`LET'S PREPARE HOOMAAN\u{1F6A8}\u{1F693}\n\nAssalamualaikum.\nMengingatkan, untuk malam ini...\n\u{1F5D3}\uFE0F ${tgl}\n( 22.30 - Shubuh )\n\n*Petugas Piket Malam*\n\n\u{1F46E}\u{1F3FC}\u200D\u2642\uFE0F\n`;
+aP.forEach(n=>tx+=`mas ${n.toLowerCase()} \u200E\n`);
+tx+=`\n\u{1F46E}\u{1F3FC}\n`;
+iP.forEach(n=>tx+=`mba ${n.toLowerCase()} \u200E\n`);
+tx+=`\n*PEPERIZINAN JAMAL, ISI BUKU JAMAL DI YANG PIKET*\n\nJob desc:\n1. Membuang Sampah Astra & Astri\n2. Mengamankan sekeliling PPM\n3. Membangunkan sholat malam komplek dan PPM\n4. Menutup palang depan komplek\n5. Menjemput santri yang pulang lewat jam malam dengan ketentuan sebelumnya konfirmasi kepada koordinator\n6. merapikan parkiran\n7. Membangunkan subuh\n\nNB:\n\u2022 Amal sholeh membawa jaket dan sarung/selimut untuk diri sendiri...\n\n*KEEP LILLAH* semoga allah paring aman selamat lancar dan ganti yg barokah\n\u0627\u0644\u062d\u0645\u062f \u0644\u0644\u0647 \u062c\u0632\u0627 \u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627-`;
 showCP('Piket Jaga Malam',tgl,tx,'astra-menu')}
 
 // ============ COPY PAGE ============
