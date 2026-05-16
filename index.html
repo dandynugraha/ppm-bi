@@ -84,12 +84,12 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 <body>
 <div class="toast" id="toast"></div>
 
-<div class="pg on" id="splash"><div class="lw"><img src="logo.jpg" alt="Logo PPM"><h1>PPM Baitul 'Ilmaini</h1><p>By System</p></div><div class="loader"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+<div class="pg on" id="splash"><div class="lw"><img src="logo.jpg" alt="Logo PPM"><h1>PPM Baitul 'Ilmaini</h1><p>by system</p></div><div class="loader"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
 
 <div class="pg" id="home">
-<div class="hd"><h2>PPM Baitul 'Ilmaini</h2><p>By System</p></div>
+<div class="hd"><h2>PPM Baitul 'Ilmaini</h2><p>by system</p></div>
 <div class="mg">
-<div class="mc" onclick="go('sekben-menu')"><div><h3>Sekben</h3><p>Absensi kelas pengajian</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('sekben-menu')"><div><h3>Sekben</h3><p>Absensi kelas mengaji</p></div><div class="ar">&rsaquo;</div></div>
 <div class="mc" onclick="go('k3lo-menu')"><div><h3>K3LO</h3><p>Piket, absen & manajemen</p></div><div class="ar">&rsaquo;</div></div>
 </div></div>
 
@@ -116,8 +116,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 <div class="pg" id="k3lo-menu">
 <div class="hd hwb"><button class="bb" onclick="go('home')">&lsaquo;</button><h2>K3LO</h2><p>Pilih menu</p></div>
 <div class="mg">
-<div class="mc" onclick="go('astri-menu')"><div><h3>Astri</h3><p>Piket & absen putri</p></div><div class="ar">&rsaquo;</div></div>
-<div class="mc" onclick="go('astra-menu')"><div><h3>Astra</h3><p>Piket & absen putra</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('astri-menu')"><div><h3>Astri</h3><p>Piket & absen astri</p></div><div class="ar">&rsaquo;</div></div>
+<div class="mc" onclick="go('astra-menu')"><div><h3>Astra</h3><p>Piket & absen astra</p></div><div class="ar">&rsaquo;</div></div>
 <div class="mc" onclick="go('duit-menu')"><div><h3>Duit</h3><p>Kebersihan & kesehatan</p></div><div class="ar">&rsaquo;</div></div>
 </div></div>
 
@@ -175,7 +175,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 const HR=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],BL=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 const SD=['Pak Adil','Pak Irfan','Pak Hanif','Mba Bilqis'],SS=['Hadir','Alpa','Izin','Cuti','Pulang','Izin Telat'],KS=['Sudone','Alpa','Izin','Cuti'];
 const PA_I=['Mba Jeni','Mba Aisyah','Mba Bilqis'],PA_A=['Aldaka','Athar','Dandy','Mas Royhan'];
-const SK={hadist:{n:'Hadist Besar',s:['Almanshurin R. W.','Maylando Miftahul A.','M. Dandy Nugraha','Salman Firdaus','Aghnia Fahmaneta','Aisyah Widyawati','Jeni Mauritama','Shabrina Afroo','Zaskia Anjani Putri']},cepatan:{n:'Cepatan',s:['Alkaysi Ihsana','Hadiyanto','Oktavian Fauzi','Yudha Wisnu','Yudistira D.','Adi Syahputra','Firdaus R. D.','Hamdani Ibrahim','Kayis Ardian','M. Ihsan','Restu Fajar','Zulfan Ahmad','Aprilistya Nur','Dewina Alfina','Furusyin C.','Nanda Ridauli','Nirmala Cindy','Ria Fitriani','Risha Shabisma','Fanisa Maulinda','Aulia Mutiara']},lambatan:{n:'Lambatan',s:['Abian Jakeiva','Aldaka Galvin','Danin Nuzan','Faaza Abdullah','M. Athar Rafid','M. Fahrurrozie','M. Vahri R.','Nizar Zedda','Devian P. P. H.','Arieny Putri N.','Ardiansyah F','Everyl Dina','Lady Kaisyu','Oktavia Dhiya','Queena Daniza','Shabrina Fayza']}};
+const SK={hadist:{n:'Hadist Besar',s:['Almanshurin R. W.','Maylando Miftahul A.','M. Dandy Nugraha','Salman Firdaus','Aghnia Fahmaneta','Aisyah Widyawati','Jeni Mauritama','Shabrina Afroo','Zaskia Anjani astri']},cepatan:{n:'Cepatan',s:['Alkaysi Ihsana','Hadiyanto','Oktavian Fauzi','Yudha Wisnu','Yudistira D.','Adi Syahastra','Firdaus R. D.','Hamdani Ibrahim','Kayis Ardian','M. Ihsan','Restu Fajar','Zulfan Ahmad','Aprilistya Nur','Dewina Alfina','Furusyin C.','Nanda Ridauli','Nirmala Cindy','Ria Fitriani','Risha Shabisma','Fanisa Maulinda','Aulia Mutiara']},lambatan:{n:'Lambatan',s:['Abian Jakeiva','Aldaka Galvin','Danin Nuzan','Faaza Abdullah','M. Athar Rafid','M. Fahrurrozie','M. Vahri R.','Nizar Zedda','Devian P. P. H.','Arieny astri N.','Ardiansyah F','Everyl Dina','Lady Kaisyu','Oktavia Dhiya','Queena Daniza','Shabrina Fayza']}};
 const PHI={1:['Amy','Oca','Fanes'],2:['Anjani','Iif','Nana','Ria'],3:['Arin','Nirmala','Arsy','Halin'],4:['Nanet','Lady','Queen'],5:['Aisyah','Jeni','Dewina','Nanda','Iin']};
 const PHA={1:['Dandy','Bibin','Danin','Alung','Vian'],2:['Hadi','Vahri','Tahul','Firdaus'],3:['Zulfan','Athar','Dani','Yudis','Kaysi'],4:['Faaza','Salman','Alman','Aldaka','Fajar'],5:['Ihsan','Kayis','Yudha','Devian','Nizar']};
 const JMA={0:['Danin','Hadi','Vahri','Alman'],1:['Dandy','Alung','Yudis','Adi'],2:['Dani','Kaysi','Athar','Ihsan'],3:['Devian','Daus','Vian','Bibin'],4:['Yudha','Nizar','Zulfan'],5:['Tahul','Salman','Kayis'],6:['Aldaka','Faaza','Fajar']};
@@ -220,7 +220,7 @@ function getRotatedAssignment(names,jobs){
   return pairs;
 }
 
-// Google Apps Script URLs - GANTI DENGAN URL DEPLOYMENT KAMU
+// Google Apps Script URLs 
 const URLS={sekben:'https://script.google.com/macros/s/AKfycbzmg36NCnWc_LSNW2ggbDoFzI3QoMo-6LK3eJX-9NvAqdsoZES3wHkIgLoHjjM3UwA/exec',astri:'https://script.google.com/macros/s/AKfycbywZpm9WDhhiZYJ-OGvhXGbNxuHpP85q85yi4i-IMax7FV2rDrrxwL6xj24rdC2ZXc/exec',astra:'https://script.google.com/macros/s/AKfycbyLY_pFLlqa17X-A2a7ySeHDX2fDbC52Rlf69bz1rTuiRMtvYIwzvHUZxdKalA-bYg-/exec'};
 let se={k:'',d:'',i:0,r:[]},kl={g:'',t:'',p:'',i:0,r:[],l:[]};
 
@@ -244,13 +244,17 @@ function showSR(){const r=se.r,c=SK[se.k];document.getElementById('rsu').textCon
 const h=r.filter(x=>x.status==='Hadir').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-h-al;
 let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${h}</div><div class="l">Hadir</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
 r.forEach(s=>{const cl=s.status==='Hadir'?'st-h':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':s.status==='Cuti'?'st-c':s.status==='Pulang'?'st-p':'st-it';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
-htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="se.i=se.r.length-1;rSA();go('sekben-absen')">Edit</button><button class="nb p" onclick="sendSek()">Kirim</button></div>`;
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="se.i=se.r.length-1;rSA();go('sekben-absen')">Edit</button><button class="nb p" onclick="sendSek()">Kirim ke Sheets</button></div>`;
 document.getElementById('ra').innerHTML=htm;go('sekben-result')}
 function sendSek(){
   const payload={action:'absen-sekben',kelas:SK[se.k].n,degur:se.d,tanggal:ftgl(new Date()),results:se.r};
-  if(!URLS.sekben.startsWith('YOUR_')){fetch(URLS.sekben,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}).then(()=>toast('Data terkirim')).catch(()=>toast('Gagal kirim'))}
+  if(!URLS.sekben.startsWith('YOUR_')){
+    toast('Mengirim...');
+    fetch(URLS.sekben,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+    .then(r=>r.json()).then(d=>{if(d.success)toast('Data terkirim');else toast('Error: '+(d.error||'gagal'))})
+    .catch(()=>toast('Gagal kirim, cek koneksi'))}
   else{toast('Data tercatat (offline)')}
-  setTimeout(()=>go('sekben-menu'),1500)}
+  setTimeout(()=>go('sekben-menu'),2000)}
 
 // ============ PIKET HARIAN with AUTO ROLLING ============
 function showPH(g){const d=di();if(d===0||d===6){toast('Tidak ada piket harian hari ini');return}
@@ -268,20 +272,30 @@ else{
   tx+=`NB:\n- Setelah piket amshol, wajib checklist\n- Deadline pengerjaan: 23.59 hari piket\n- Yang tidak menyelesaikan tugas, akan didobel minggu berikutnya\nJangan lupa niatkan karena Allah\n"Bersihkan hatimu, bersihkan lingkunganmu"\nKerjakan karena Allah, mugo-mugo Allah paringi manfaat, kelancaran, & keberkahan\n\u0627\u0644\u062d\u0645\u062f \u0644\u0644\u0647 \u062c\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627\n\u0648\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647`}
 showCP(g==='astri'?'Piket Harian Astri':'Piket Harian Astra',tgl,tx,g+'-menu')}
 
-// ============ PIKET MASJID with AUTO ROLLING ============
-function showPM(g){const tgl=ftgl(new Date()),jadwal=g==='astri'?PHI:PHA;
-// Collect all names
-const aN=[];Object.values(jadwal).forEach(a=>a.forEach(n=>{if(!aN.includes(n))aN.push(n)}));
-// Rotate all names for masjid assignment
-const w=getWeekNum();const rotN=rotateArray(aN,w);
+// ============ PIKET MASJID with AUTO ROLLING — ALL members distributed ============
+function distributeToJobs(names,jobs){
+  // Distribute all names across all jobs evenly, rotate by week
+  var w=getWeekNum();var rotN=rotateArray(names,w);
+  var assign=jobs.map(function(){return[]});
+  rotN.forEach(function(n,i){assign[i%jobs.length].push(n)});
+  return assign; // assign[i] = array of names for jobs[i]
+}
+
+function showPM(g){const tgl=ftgl(new Date());
+// Use ALL members, not just piket harian names
+const allNames=g==='astri'?[...AI]:[...AA];
 let tx='';
 if(g==='astri'){
   const mj=['Nyapu masjid lt.2','Ngepel masjid 2','Nyapu tangga perempuan','Ngepel tangga perempuan','Nyapu tangga laki-laki','Ngepel tangga laki-laki','Menyapu/menyebret PPG','Km bawah (disikat, dibersihkan kloset, dan sawangnya','Km atas (disikat, dibersihkan kloset dan sawangnya','Membersihkan wudhu lantai 2','Membersihkan tempat wudhu lantai 1','Merapihkan rak mukena dan Alquran','Jendela lantai 2','Menyapu teras depan kamar tamu','Mengepel teras depan kamar tamu desa'];
-  tx=`Piket Masjid Jum'at\n${tgl}\n\n`;mj.forEach((j,i)=>{tx+=`${i+1}. ${j}: ${rotN[i%rotN.length]}\n`});
-  tx+=`\nNB: untuk yang kuliah pagi\n1. Tetap harus mengerjakan piket.\n2. Jika tidak bisa piket pagi maka mengganti di waktu lain. Terakhir pengerjaan 22.00 WIB.\nKerjakan karena Allah semoga Allah paring manfaat lancar dan barokah, Alhamdulillahi jaza kumullahu khoiro`}
+  const assign=distributeToJobs(allNames,mj);
+  tx=`Piket Masjid Jum'at\n${tgl}\n\n`;
+  mj.forEach((j,i)=>{tx+=`${i+1}. ${j}:\n`;assign[i].forEach(n=>{tx+=`   - ${n}\n`});tx+='\n'});
+  tx+=`NB: untuk yang kuliah pagi\n1. Tetap harus mengerjakan piket.\n2. Jika tidak bisa piket pagi maka mengganti di waktu lain. Terakhir pengerjaan 22.00 WIB.\nKerjakan karena Allah semoga Allah paring manfaat lancar dan barokah, Alhamdulillahi jaza kumullahu khoiro`}
 else{
   const mj=['Membersihkan tempat wudhu (+ selasar depan KM)','Membersihkan kaca jendela sisi belakang','Membersihkan kaca jendela sisi depan','Menyapu halaman parkiran samping PPM','Membersihkan ruang muadzin dan rak','Membersihkan halaman samping masjid','Membersihkan halaman depan masjid','Membersihkan teras masjid (sisi belakang)','Membersihkan teras masjid (sisi depan)','Membersihkan KM 1','Membersihkan KM 2','Membersihkan KM 3','Membersihkan Kantor LDII'];
-  tx=`[ PIKET MASJID ]\n\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\n\nHallo Astra Squad, Berikut pembagian tugas piket masjid (${tgl}):\n\n`;mj.forEach((j,i)=>{tx+=`${i+1}. ${j}\n   - ${rotN[i%rotN.length]}\n\n`});
+  const assign=distributeToJobs(allNames,mj);
+  tx=`[ PIKET MASJID ]\n\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\n\nHallo Astra Squad, Berikut pembagian tugas piket masjid (${tgl}):\n\n`;
+  mj.forEach((j,i)=>{tx+=`${i+1}. ${j}\n`;assign[i].forEach(n=>{tx+=`   \u2022 ${n}\n`});tx+='\n'});
   tx+=`Semoga Allah senantiasa memberi keberkahan atas setiap amal kalian\nNB: Jangan lupa checklist setelah menyelesaikan tugas ya!\n\u062c\u0632\u0627\u0643\u0645 \u0627\u0644\u0644\u0647 \u062e\u064a\u0631\u0627\n\u0648\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\n\u2014 Tim K3LO PPM Baitul 'Ilmaini`}
 showCP(g==='astri'?'Piket Masjid Astri':'Piket Masjid Astra',tgl,tx,g+'-menu')}
 
@@ -330,16 +344,20 @@ document.getElementById('krs').textContent=`${tl[kl.t]} ${gl} \u2014 ${kl.p}`;
 const sd=r.filter(x=>x.status==='Sudone').length,al=r.filter(x=>x.status==='Alpa').length,ot=r.length-sd-al;
 let htm=`<div class="sr"><div class="sb"><div class="n" style="color:var(--ok)">${sd}</div><div class="l">Sudone</div></div><div class="sb"><div class="n" style="color:var(--err)">${al}</div><div class="l">Alpa</div></div><div class="sb"><div class="n" style="color:var(--warn)">${ot}</div><div class="l">Lainnya</div></div></div><div class="rc">`;
 r.forEach(s=>{const cl=s.status==='Sudone'?'st-su':s.status==='Alpa'?'st-a':s.status==='Izin'?'st-i':'st-c';htm+=`<div class="ri"><span class="nm">${s.nama}</span><span class="st ${cl}">${s.status}</span></div>`});
-htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="kl.i=kl.r.length-1;rKA();go('k3lo-absen')">Edit</button><button class="nb p" onclick="sendK()">Kirim</button></div>`;
+htm+=`</div><div class="nr" style="padding:0 0 16px"><button class="nb s" onclick="kl.i=kl.r.length-1;rKA();go('k3lo-absen')">Edit</button><button class="nb p" onclick="sendK()">Kirim ke Sheets</button></div>`;
 document.getElementById('kra').innerHTML=htm;document.getElementById('krb').onclick=()=>go(kl.g+'-menu');go('k3lo-result')}
 
 function sendK(){
   const tl={harian:'Piket Harian','jaga-malam':'Jaga Malam',mingguan:'Piket Mingguan',masjid:'Piket Masjid'};
   const payload={action:'absen-k3lo',group:kl.g,type:kl.t,typeLabel:tl[kl.t],pengabsen:kl.p,tanggal:ftgl(new Date()),results:kl.r};
   const url=kl.g==='astri'?URLS.astri:URLS.astra;
-  if(url&&!url.startsWith('YOUR_')){fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}).then(()=>toast('Data terkirim')).catch(()=>toast('Gagal kirim'))}
+  if(url&&!url.startsWith('YOUR_')){
+    toast('Mengirim...');
+    fetch(url,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+    .then(r=>r.json()).then(d=>{if(d.success)toast('Data terkirim');else toast('Error: '+(d.error||'gagal'))})
+    .catch(()=>toast('Gagal kirim, cek koneksi'))}
   else{toast('Data tercatat (offline)')}
-  setTimeout(()=>go(kl.g+'-menu'),1500)}
+  setTimeout(()=>go(kl.g+'-menu'),2000)}
 </script>
 </body>
 </html>
