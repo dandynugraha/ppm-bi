@@ -286,9 +286,9 @@ const jadwal=g==='astri'?PHI:PHA,names=jadwal[d]||[],jobs=g==='astri'?JI:JA,tgl=
 const assignment=getRotatedAssignment(names,jobs);
 let tx='';
 if(g==='astri'){
-  tx=`REMINDER\n${tgl}\nAdapun pembagian jobnya :\n`;
+  tx=`REMINDER‼️‼️\n*${tgl}*\nAdapun pembagian jobnya :\n`;
   assignment.forEach((a,i)=>{tx+=`${i+1}. ${a.job}: ${a.names.join(', ')}\n`});
-  tx+=`\nNOTE\n- Bagi yang berhalangan beri alasan yang jelas\n- Setelah melaksanakan piket, harap menceklis namanya\n- Jika ada kendala dalam jobdesknya supaya PC tim k3lo\nKerjakan karna Alloh, Alhamdulillahijazakumullohukhoiro\nCmangatt cmingitt cmungutt`}
+  tx+=`\nNOTE📌\n- Bagi yang berhalangan beri alasan yang jelas\n- Setelah melaksanakan piket, harap menceklis namanya\n- Jika ada kendala dalam jobdesknya supaya PC tim k3lo\nKerjakan karna Alloh, Alhamdulillahijazakumullohukhoiro🙏🏻\nCmangatt cmingitt cmungutt`}
 else{
   tx=`[PIKET HARIAN - ${tgl}]\n\n`;
   assignment.forEach((a,i)=>{tx+=`${i+1}. ${a.job}\n   - ${a.names.join(', ')}\n\n`});
